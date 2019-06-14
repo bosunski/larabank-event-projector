@@ -13,7 +13,17 @@ class CreateAccountsTable extends Migration
             $table->string('uuid');
             $table->string('name');
             $table->integer('user_id');
+
             $table->integer('balance')->default(0);
+
+            $table->string('address')->nullable();
+            $table->string('state')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('dob')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('account_number')->nullable();
+
             $table->timestamps();
         });
     }

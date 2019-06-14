@@ -1,13 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+    @if($errors->count() > 0)
+        <div class="py-8 mb-2 flex items-center justify-center rounded-sm bg-grey-darkest border-grey-darker text-grey-light">
+            {{ $errors->first('amount') }}
+        </div>
+    @endif
     @if($accounts->count())
         <ul>
             @foreach($accounts as $account)
                 <li class="mb-2 leading-none flex items-stretch">
                     <div class="flex-1 flex flex-col justify-center p-4 rounded-sm bg-grey-darkest border-grey-darker mr-2">
                         <h2 class="text-grey-light text-sm uppercase font-bold mb-1">
-                            {{ strtoupper($account->name) }}
+                            {{ strtoupper($account->name) }} ({{ strtoupper($account->account_number) }})
                         </h2>
                         <strong class="text-3xl {{ $account->balance >= 0 ? 'text-green' : 'text-red' }}">
                             € {{ $account->balance }}
@@ -51,5 +56,5 @@
             Nothing here yet!
         </div>
     @endif
-    @include('accounts.partials.create-form')
+{{--    @include('accounts.partials.create-form')--}}
 @endsection

@@ -16,6 +16,12 @@ class CreateAccountRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'gender' => 'required',
+            'dob' => 'required',
+            'address' => 'required',
+            'state' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
         ];
     }
 

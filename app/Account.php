@@ -6,10 +6,14 @@ use App\Events\AccountCreated;
 use App\Events\MoneyAdded;
 use App\Events\MoneySubtracted;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Ramsey\Uuid\Uuid;
 
 class Account extends Model
 {
+//    protected $fillable = [
+//        'name', 'balance', 'address', 'state', 'email', 'phone', 'gender', 'uuid', 'user_id',
+//    ];
     public $guarded = [];
 
     public static function createWithAttributes(array $attributes): Account
@@ -18,6 +22,7 @@ class Account extends Model
          * Let's generate a uuid.
          */
         $attributes['uuid'] = (string) Uuid::uuid4();
+        $attributes['account_number'] = random_int(1000000000, 9999999999);
 
         /*
          * The account will be created inside this event using the generated uuid.

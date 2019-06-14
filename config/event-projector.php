@@ -17,6 +17,8 @@ return [
      */
     'projectors' => [
         // App\Projectors\YourProjector::class
+        \App\Projectors\AccountsProjector::class,
+        \App\Projectors\TransactionCountProjector::class
     ],
 
     /*

@@ -23,7 +23,9 @@ class AccountsController extends Controller
 
         Account::createWithAttributes($attributes);
 
-        return back();
+        alert()->success('Account Created Successfully!')->persistent();
+
+        return redirect('/accounts');
     }
 
     public function update(Account $account, UpdateAccountRequest $request)
@@ -31,6 +33,10 @@ class AccountsController extends Controller
         $request->adding()
             ? $account->addMoney($request->amount)
             : $account->subtractMoney($request->amount);
+
+        $message = $request->adding() ? "You have deposited $request->amount into $account->name"
+            : "You have withdrawn $request->amount from $account->name";
+        alert()->success('Account Updated!', $message)->persistent();
 
         return back();
     }

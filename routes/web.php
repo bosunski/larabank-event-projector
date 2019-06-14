@@ -10,4 +10,5 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::resource('accounts', AccountsController::class);
     Route::get('transactions', [TransactionsController::class, 'index']);
+    Route::view('account-add', 'accounts.add');
 });

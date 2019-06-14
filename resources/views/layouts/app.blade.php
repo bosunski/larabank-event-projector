@@ -25,6 +25,24 @@
             @auth
                 <ul class="flex">
                     <li>
+                        <a href="/account-add" class="text-grey-dark mr-3">
+                            Add Account
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/accounts" class="text-grey-dark mr-3">
+                            Accounts
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/transactions" class="text-grey-dark mr-3">
+                            Transactions
+                        </a>
+                    </li>
+
+                    <li>
                         <a
                             href="{{ route('logout') }}"
                             class="text-grey-dark"
@@ -43,5 +61,7 @@
     <main class="max-w-lg mx-auto px-4">
         @yield('content')
     </main>
+
+    @include('sweetalert::alert')`
 </body>
 </html>
