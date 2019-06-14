@@ -2,7 +2,7 @@
 
 @section('content')
     @if($errors->count() > 0)
-        <div class="py-8 mb-2 flex items-center justify-center rounded-sm bg-grey-darkest border-grey-darker text-grey-light">
+        <div class="px-2 py-8 mb-2 flex items-center justify-center rounded-sm bg-grey-darkest border-grey-darker text-grey-light">
             {{ $errors->first('amount') }}
         </div>
     @endif

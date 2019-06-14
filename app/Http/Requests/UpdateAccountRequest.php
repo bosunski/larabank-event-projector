@@ -24,12 +24,12 @@ class UpdateAccountRequest extends FormRequest
         return $this->has('addMoney');
     }
 
-    public function validateAmount($value, $attribute, $fail)
+    public function validateAmount($attribute, $value, $fail)
     {
         if (!$this->adding()) {
             $account = $this->route('account');
-            if ($value > $account->balance) {
-                $fail("Insufficient funds to withdraw from $account->name ($account->account_number), please contact your financial institution!");
+            if ($account->balance < $value) {
+                $fail("Insufficient funds to withdraw from $account->name ($account->account_number), please contact your financial institution or put another amount!");
             }
         }
     }
