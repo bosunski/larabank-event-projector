@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\History;
 use App\TransactionCount;
 
 class TransactionsController extends Controller
@@ -10,6 +11,8 @@ class TransactionsController extends Controller
     {
         $transactionCounts = TransactionCount::orderByDesc('count')->get();
 
-        return view('transactions.index', compact('transactionCounts'));
+        $transactions = History::all();
+
+        return view('transactions.index', compact('transactionCounts', 'transactions'));
     }
 }

@@ -1,7 +1,7 @@
 <div class="w-2/3 pr-2">
     <form action="{{ route('accounts.store') }}" method="post">
         @csrf
-        <div class="flex">
+        <div class="">
 
             <label class="text-white" for="name">Name</label><br/>
             <input type="name" name="name" id="name" value="{{ old('name') }}" placeholder="Account name" class="rounded-sm px-2 h-10 mb-2 mr-2" autocomplete="off" required><br/>
