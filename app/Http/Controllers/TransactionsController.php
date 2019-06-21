@@ -11,7 +11,7 @@ class TransactionsController extends Controller
     {
         $transactionCounts = TransactionCount::orderByDesc('count')->get();
 
-        $transactions = History::all();
+        $transactions = History::latest()->get();
 
         $transactions = (object) $transactions->map(function ($history) {
             $collect = collect(explode(':', $history->message))->map(function ($v) {
