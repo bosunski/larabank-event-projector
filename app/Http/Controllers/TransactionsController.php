@@ -26,7 +26,7 @@ class TransactionsController extends Controller
             $data['amount'] = $m[2];
             $data['balance'] = $m[3];
 
-            return (object) array_merge(['date' => $history->created_at->format('d/m/Y')], $data);
+            return (object) array_merge(['date' => $history->created_at->format('d/m/Y H:i:s')], $data);
         })->toArray();
 
 //        dd($transactions);
