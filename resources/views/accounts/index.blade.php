@@ -12,7 +12,7 @@
                 <li class="mb-2 leading-none flex items-stretch">
                     <div class="flex-1 flex flex-col justify-center p-4 rounded-sm bg-grey-darkest border-grey-darker mr-2">
                         <h2 class="text-grey-light text-sm uppercase font-bold mb-1">
-                            {{ strtoupper($account->name) }} ({{ strtoupper($accowunt->account_number) }})
+                            {{ strtoupper($account->name) }} ({{ strtoupper($account->account_number) }})
                         </h2>
                         <strong class="text-3xl {{ $account->balance >= 0 ? 'text-green' : 'text-red' }}">
                             € {{ $account->balance }}
